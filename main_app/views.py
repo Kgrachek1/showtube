@@ -27,7 +27,11 @@ def signup(request):
             error_message = 'Invalid sign up - Try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
-    return render(request, 'registration/signup.html', context)       
+    return render(request, 'registration/signup.html', context)  
+     
+class Search(ListView):
+    model = SearchVideo
+    fields = '__all__'
     
 def search(request):
     videos = []
