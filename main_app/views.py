@@ -10,7 +10,6 @@ from django.views.generic.edit import CreateView
 
 
 
-DEVELOPER_KEY = os.environ['DEVELOPER_KEY']
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -27,11 +26,7 @@ def signup(request):
             error_message = 'Invalid sign up - Try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
-    return render(request, 'registration/signup.html', context)  
-     
-class Search(ListView):
-    model = SearchVideo
-    fields = '__all__'
+    return render(request, 'registration/signup.html', context)       
     
 def search(request):
     videos = []
